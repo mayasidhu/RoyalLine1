@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 192120389}
   - component: {fileID: 192120388}
   - component: {fileID: 192120387}
+  - component: {fileID: 192120390}
   m_Layer: 0
   m_Name: IMG_5182
   m_TagString: Player
@@ -466,6 +467,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &192120390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192120386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643876d99b0734fef8f0c1e749963844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  cookie: {fileID: 0}
+  Player: {fileID: 0}
 --- !u!1 &345232239
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 302349065609260175, guid: 61f1b69068b884da287e2beaafb4e2a2, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 302349065609260175, guid: 61f1b69068b884da287e2beaafb4e2a2, type: 3}
       propertyPath: m_LocalScale.x
@@ -1388,7 +1404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 302349065609260175, guid: 61f1b69068b884da287e2beaafb4e2a2, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 302349065609260175, guid: 61f1b69068b884da287e2beaafb4e2a2, type: 3}
       propertyPath: m_LocalScale.x
@@ -1793,7 +1809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 302349065609260175, guid: 61f1b69068b884da287e2beaafb4e2a2, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 302349065609260175, guid: 61f1b69068b884da287e2beaafb4e2a2, type: 3}
       propertyPath: m_LocalScale.x
