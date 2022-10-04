@@ -2571,8 +2571,8 @@ GameObject:
   - component: {fileID: 1812928989}
   - component: {fileID: 1812928988}
   m_Layer: 0
-  m_Name: IMG_6087
-  m_TagString: Untagged
+  m_Name: Ghost
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
