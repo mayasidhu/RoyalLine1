@@ -20,6 +20,15 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 direction = Vector2.zero;
 
     public GameObject Player;
+    //public float speed;
+    public bool grounded;
+    public LayerMask groundLayers;
+    public float groundRayLength = 0.1f;
+    public float groundRaySpread = 0.1f;
+    [HideInInspector] public Vector2 relativeVelocity = new Vector2();
+
+    protected Rigidbody2D rb2d;
+    protected MovingPlatform onMovingPlatform;
 
 
     //public Transform Bomberman;
@@ -32,8 +41,8 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    
-    private void Update()
+
+     private void Update()
     {
 
         float speedX = Input.GetAxis("Horizontal") * speed;
@@ -46,19 +55,19 @@ public class PlayerMovement : MonoBehaviour
         {
 
             SetDirection(Vector2.right);
-            
-            
+
+
         }
 
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
 
             SetDirection(Vector2.left);
-       
-            
+
+
 
         }
-       
+
         else
         {
 
@@ -80,12 +89,12 @@ public class PlayerMovement : MonoBehaviour
     {
 
     }
-}
+} 
+
+
+
+
 
 
 //float destroyTime = 2;
 //SpriteRenderer spriteRenderer;
-
-
-
-
