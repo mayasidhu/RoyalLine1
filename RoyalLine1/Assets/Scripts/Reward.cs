@@ -5,6 +5,8 @@ using UnityEngine;
 public class Reward : MonoBehaviour
 {
     public static int totalReward = 0;
+    public GameObject door1;
+    public GameObject door2;
 
     private void Awake()
     {
@@ -21,6 +23,14 @@ public class Reward : MonoBehaviour
             Debug.Log("You have " + Reward.totalReward + "points");
             //destroy reward from scene
             Destroy(gameObject);
+        }
+    }
+    private void Update ()
+    {
+        if (totalReward == 5)
+        {
+            Destroy(door1);
+            Destroy(door2);
         }
     }
 }
