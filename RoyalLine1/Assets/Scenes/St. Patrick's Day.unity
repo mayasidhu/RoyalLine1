@@ -239,13 +239,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 132414742}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 643876d99b0734fef8f0c1e749963844, type: 3}
+  m_Script: {fileID: 11500000, guid: c2706250026f5470686f0652f43be940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  spriter1: {fileID: 132414744}
+  speed: 0
+  grounded: 0
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  groundRayLength: 0.1
+  groundRaySpread: 0.1
+  relativeVelocity: {x: 0, y: 0}
+  rb2d: {fileID: 0}
+  jumpforce: 0
+  lives: 5
+  spriter1: {fileID: 0}
   defaultSprite1: {fileID: 0}
-  Player: {fileID: 132414742}
+  Player: {fileID: 0}
 --- !u!1 &170141189
 GameObject:
   m_ObjectHideFlags: 0

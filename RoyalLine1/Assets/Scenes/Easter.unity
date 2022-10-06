@@ -2337,7 +2337,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003144298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.39, y: -2.241, z: 0}
+  m_LocalPosition: {x: 6.45, y: -2.241, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3345,11 +3345,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 10
+  m_GravityScale: 2
   m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_Interpolate: 1
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!60 &1649246753
 PolygonCollider2D:
@@ -3450,17 +3450,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2706250026f5470686f0652f43be940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  spriter1: {fileID: 1649246755}
-  defaultSprite1: {fileID: 0}
-  Player: {fileID: 1649246751}
+  speed: 5
   grounded: 0
   groundLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   groundRayLength: 0.1
-  groundRaySpread: 0.1
+  groundRaySpread: 0.4
   relativeVelocity: {x: 0, y: 0}
+  rb2d: {fileID: 1649246752}
+  jumpforce: 12
+  lives: 5
+  spriter1: {fileID: 1649246755}
+  defaultSprite1: {fileID: 0}
+  Player: {fileID: 1649246751}
 --- !u!212 &1649246755 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2057144035161507400, guid: ae5b8c518d883469694df896559129ab, type: 3}

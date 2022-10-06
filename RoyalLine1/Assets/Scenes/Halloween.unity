@@ -2715,6 +2715,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   door1: {fileID: 0}
   door2: {fileID: 0}
+--- !u!50 &1722219918 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 7356085935903107104, guid: 647934db9e5654dc194170be044c6fc6, type: 3}
+  m_PrefabInstance: {fileID: 1986204044}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1791863245
 GameObject:
   m_ObjectHideFlags: 0
@@ -3583,7 +3588,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7356085935903107104, guid: 647934db9e5654dc194170be044c6fc6, type: 3}
       propertyPath: m_GravityScale
-      value: 10
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678965130368875130, guid: 647934db9e5654dc194170be044c6fc6, type: 3}
+      propertyPath: rb2d
+      value: 
+      objectReference: {fileID: 1722219918}
+    - target: {fileID: 7678965130368875130, guid: 647934db9e5654dc194170be044c6fc6, type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7678965130368875130, guid: 647934db9e5654dc194170be044c6fc6, type: 3}
       propertyPath: Player
@@ -3593,6 +3606,18 @@ PrefabInstance:
       propertyPath: spriter1
       value: 
       objectReference: {fileID: 1722219911}
+    - target: {fileID: 7678965130368875130, guid: 647934db9e5654dc194170be044c6fc6, type: 3}
+      propertyPath: jumpforce
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678965130368875130, guid: 647934db9e5654dc194170be044c6fc6, type: 3}
+      propertyPath: groundRaySpread
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678965130368875130, guid: 647934db9e5654dc194170be044c6fc6, type: 3}
+      propertyPath: groundLayers.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 647934db9e5654dc194170be044c6fc6, type: 3}
 --- !u!1 &2001141189 stripped

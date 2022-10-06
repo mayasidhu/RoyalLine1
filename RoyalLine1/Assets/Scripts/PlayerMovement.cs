@@ -2,14 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 using static UnityEditor.Experimental.GraphView.GraphView;
+using Input = UnityEngine.Input;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Controller
 {
 
-    public float speed = 10;
+    public float jumpforce;
+    public int lives = 5;
+    private float inputX;
+    private SpriteRenderer sRenderer;
+    private bool invulnerable = false;
 
-    private Rigidbody2D rb2D;
+    //private Rigidbody2D rb2D;
 
     public SpriteRenderer spriter1;
     public Sprite defaultSprite1;
@@ -20,30 +26,30 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 direction = Vector2.zero;
 
     public GameObject Player;
-    //public float speed;
-    public bool grounded;
-    public LayerMask groundLayers;
-    public float groundRayLength = 0.1f;
-    public float groundRaySpread = 0.1f;
-    [HideInInspector] public Vector2 relativeVelocity = new Vector2();
+    private static readonly Vector2 vector2 = new Vector2();
 
-    protected Rigidbody2D rb2d;
+    //public float speed;
+
+    //private Vector2 relativeVelocity = vector2;
+
+    //protected Rigidbody2D rb2d;
     protected MovingPlatform onMovingPlatform;
+    //private float inputX;
 
 
     //public Transform Bomberman;
 
-    private void Start()
+    public override void Start()
     {
-        rb2D = Player.GetComponent<Rigidbody2D>();
+        rb2d = Player.GetComponent<Rigidbody2D>();
         spriter1 = Player.GetComponent<SpriteRenderer>();
         Player = GameObject.FindWithTag("Player");
 
     }
 
 
-     private void Update()
-    {
+    void Update()
+    { /*
 
         float speedX = Input.GetAxis("Horizontal") * speed;
         float speedY = Input.GetAxis("Vertical") * speed;
@@ -67,22 +73,51 @@ public class PlayerMovement : MonoBehaviour
 
 
         }
-
-        else
+        else if (Input.GetKey(KeyCode.UpArrow))
         {
 
-            SetDirection(Vector2.zero);
+            SetDirection(Vector2.left);
+            speedY = jumpforce;
+
 
         }
 
-    }
+        //else
+        //{
+
+            //SetDirection(Vector2.zero);
+
+        //}
+    }*/
+
+        inputX = Input.GetAxis("Horizontal") * speed;
+        Vector2 vel = rb2d.velocity;
+        vel.x = inputX;
+        relativeVelocity = vel;
+
+        UpdateGrounding();
+        if (onMovingPlatform != null)
+        {
+            vel.x += onMovingPlatform.rb2d.velocity.x;
+        }
+
+        bool inputJump = Input.GetKeyDown(KeyCode.UpArrow);
+        if (inputJump && grounded)
+        {
+            //audioSource.PlayOneShot(jumpsound);
+            vel.y = jumpforce;
+            relativeVelocity.y = vel.y;
+        }
+        rb2d.velocity = vel;
+
+    } 
 
     private void SetDirection(Vector2 newDirect)
     {
         direction = newDirect;
     }
 
-    //place bomb in here
+    //place bomb in here 
 
 
     private void OnCollisionEnter2D(Collision2D collision)
