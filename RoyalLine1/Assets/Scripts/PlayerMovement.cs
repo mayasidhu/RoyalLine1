@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,12 +28,14 @@ public class PlayerMovement : Controller
     public GameObject Player;
     private static readonly Vector2 vector2 = new Vector2();
 
+    
+
     //public float speed;
 
     //private Vector2 relativeVelocity = vector2;
 
     //protected Rigidbody2D rb2d;
-    protected MovingPlatform onMovingPlatform;
+    protected new MovingPlatform onMovingPlatform;
     //private float inputX;
 
 
@@ -48,7 +50,7 @@ public class PlayerMovement : Controller
     }
 
 
-    void Update()
+  void Update()
     { /*
 
         float speedX = Input.GetAxis("Horizontal") * speed;

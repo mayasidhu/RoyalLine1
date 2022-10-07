@@ -59,7 +59,7 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         if (patrolPoints.Length < 2) return;
 
@@ -72,5 +72,7 @@ public class MovingPlatform : MonoBehaviour
             Gizmos.DrawWireSphere(patrolPoints[i].position, 0.5f);
         }
     }
+
+    */
 }
 

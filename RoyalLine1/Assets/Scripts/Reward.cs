@@ -7,6 +7,8 @@ public class Reward : MonoBehaviour
     public static int totalReward = 0;
     public GameObject door1;
     public GameObject door2;
+    
+
 
     private void Awake()
     {
@@ -16,13 +18,18 @@ public class Reward : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-       if (col.CompareTag("Player"))
+        if (col.CompareTag("Player"))
         {
             //adds rewards to total, once collided
+            
+            //destroy reward from scene
+            //if (col.CompareTag("reward")) { 
             totalReward++;
             Debug.Log("You have " + Reward.totalReward + "points");
-            //destroy reward from scene
             Destroy(gameObject);
+            //Instantiate(door1);
+            //Instantiate(door2);
+            //}
         }
     }
     private void Update ()
