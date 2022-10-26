@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Christmas.unity
     guid: 4de56e1fe28934647ba29774cbdfb20c
+  - enabled: 1
+    path: Assets/Scenes/YouWin.unity
+    guid: 8c1e71f2071874b1b8f6577a69c62541
   m_configObjects: {}

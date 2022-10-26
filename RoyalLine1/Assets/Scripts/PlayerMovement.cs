@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Windows;
-using static UnityEditor.Experimental.GraphView.GraphView;
 using Input = UnityEngine.Input;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : Controller
 {
@@ -12,7 +12,7 @@ public class PlayerMovement : Controller
     public float jumpforce;
     public int lives = 5;
     private float inputX;
-    private SpriteRenderer sRenderer;
+    private SpriteRenderer SpriteRenderer;
     private bool invulnerable = false;
 
     //private Rigidbody2D rb2D;
@@ -28,14 +28,16 @@ public class PlayerMovement : Controller
     public GameObject Player;
     private static readonly Vector2 vector2 = new Vector2();
 
-    
+  
+
+
 
     //public float speed;
 
     //private Vector2 relativeVelocity = vector2;
 
     //protected Rigidbody2D rb2d;
-    protected new MovingPlatform onMovingPlatform;
+    //protected new MovingPlatform onMovingPlatform;
     //private float inputX;
 
 
@@ -46,6 +48,7 @@ public class PlayerMovement : Controller
         rb2d = Player.GetComponent<Rigidbody2D>();
         spriter1 = Player.GetComponent<SpriteRenderer>();
         Player = GameObject.FindWithTag("Player");
+        //GetComponent<Collider2D>().isTrigger = true;
 
     }
 
@@ -98,10 +101,10 @@ public class PlayerMovement : Controller
         relativeVelocity = vel;
 
         UpdateGrounding();
-        if (onMovingPlatform != null)
-        {
-            vel.x += onMovingPlatform.rb2d.velocity.x;
-        }
+        //if (onMovingPlatform != null)
+        //{
+            //vel.x += onMovingPlatform.rb2d.velocity.x;
+        //}
 
         bool inputJump = Input.GetKeyDown(KeyCode.UpArrow);
         if (inputJump && grounded)
@@ -112,20 +115,44 @@ public class PlayerMovement : Controller
         }
         rb2d.velocity = vel;
 
+        
+
+   
+
     } 
 
     private void SetDirection(Vector2 newDirect)
     {
         direction = newDirect;
     }
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("PotOfGold"))
+        {
+            SceneManager.LoadScene(1);
+
+        }
+        if (col.CompareTag("Carrot"))
+        {
+            SceneManager.LoadScene(2);
+
+        }
+        if (col.CompareTag("Pumpkin"))
+        {
+            SceneManager.LoadScene(3);
+
+        }
+        if (col.CompareTag("Present"))
+        {
+            SceneManager.LoadScene(4);
+
+        }
+    }
 
     //place bomb in here 
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
 
-    }
 } 
 
 

@@ -1,6 +1,7 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovingPlatform : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class MovingPlatform : MonoBehaviour
     private Vector3[] patrolPositions;
     private int nextIndex = 0;
     private float pauseTimer;
+    public Transform platform;
+    private float offsetLeft = 0, offsetRight = 0;
+    private bool hasReachedRight = false, hasReachedLeft = false;
+    Vector3 startPosition = Vector3.zero;
+
 
     void Start()
     {
@@ -23,6 +29,7 @@ public class MovingPlatform : MonoBehaviour
             Destroy(patrolPoints[i].gameObject);
         }
         patrolPoints = new Transform[0];
+        this.platform = null;
     }
 
     void Update()
@@ -57,7 +64,42 @@ public class MovingPlatform : MonoBehaviour
         {
             rb2d.velocity = Vector2.zero;
         }
+        if (!hasReachedRight)
+        {
+            if (transform.position.x < startPosition.x + offsetRight)
+            {
+                Move(offsetRight);
+            }
+            else if (transform.position.x >= startPosition.x + offsetRight)
+            {
+                hasReachedRight = true;
+                hasReachedLeft = false;
+            }
+        }
+        else if (!hasReachedLeft)
+        {
+            if (transform.position.x > startPosition.x + offsetLeft)
+            {
+                Move(offsetLeft);
+            }
+            else if (transform.position.x <= startPosition.x + offsetLeft)
+            {
+                hasReachedRight = false;
+                hasReachedLeft = true;
+            }
+        }
     }
+    void Move(float offset)
+    {
+        transform.position = Vector3.MoveTowards(transform.position,
+        new Vector3(transform.position.x,
+        transform.position.y + offset,
+        transform.position.z),
+        speed * Time.deltaTime);
+    }
+    
+}
+    
 
     /*private void OnDrawGizmos()
     {
@@ -74,5 +116,5 @@ public class MovingPlatform : MonoBehaviour
     }
 
     */
-}
+
 

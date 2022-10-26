@@ -27,6 +27,11 @@ public class Reward : MonoBehaviour
             totalReward++;
             Debug.Log("You have " + Reward.totalReward + "points");
             Destroy(gameObject);
+            if (col.CompareTag("Door"))
+            {
+                totalReward--;
+
+            }
             //Instantiate(door1);
             //Instantiate(door2);
             //}
@@ -38,6 +43,7 @@ public class Reward : MonoBehaviour
         {
             Destroy(door1);
             Destroy(door2);
+            totalReward = 0;
         }
     }
 }

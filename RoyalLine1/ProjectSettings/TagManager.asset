@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - reward
+  - ladder
+  - PotOfGold
+  - Carrot
+  - Door
+  - Pumpkin
+  - Present
   layers:
   - Default
   - TransparentFX

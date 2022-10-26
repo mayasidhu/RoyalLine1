@@ -12,7 +12,7 @@ public abstract class Controller : MonoBehaviour
     public Vector2 relativeVelocity = new Vector2();
 
     public Rigidbody2D rb2d;
-    protected MovingPlatform onMovingPlatform;
+    //protected MovingPlatform onMovingPlatform;
 
    
 
@@ -38,22 +38,22 @@ public abstract class Controller : MonoBehaviour
         if (hit.collider != null)
         {
             grounded = true;
-            onMovingPlatform = hit.collider.gameObject.GetComponent<MovingPlatform>();
+            //onMovingPlatform = hit.collider.gameObject.GetComponent<MovingPlatform>();
             return true;
         }
         else if (hitLeft.collider != null)
         {
             grounded = true;
-            onMovingPlatform = hitLeft.collider.gameObject.GetComponent<MovingPlatform>();
+            //onMovingPlatform = hitLeft.collider.gameObject.GetComponent<MovingPlatform>();
             return true;
         }
         else if (hitRight.collider != null)
         {
             grounded = true;
-            onMovingPlatform = hitRight.collider.gameObject.GetComponent<MovingPlatform>();
+            //onMovingPlatform = hitRight.collider.gameObject.GetComponent<MovingPlatform>();
             return true;
         }
-        onMovingPlatform = null;
+        //Application.Quit();onMovingPlatform = null;
         grounded = false;
         return false;
     }
